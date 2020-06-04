@@ -1,0 +1,17 @@
+<h2>Create your account</h2>
+
+<form id="registerFormControl" [formGroup]="registerFormControl">
+    <label for="nickname">Username</label>
+    <input id="nickname" type="text" name="nickname" formControlName="username">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" formControlName="email">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" formControlName="password">
+<!-- 
+    <label for="password-confirmation">Re-enter password</label>
+    <input id="password-confirmation" type="password" name="passwordConfirmation" formControlName="passwordConfirmation"> -->
+
+    <button type="submit" (click)=onRegisterClick()>Register</button>
+</form>

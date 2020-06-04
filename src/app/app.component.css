@@ -1,0 +1,18 @@
+.links-container {
+    display: block;
+    background-color: aquamarine;
+    padding: 8px;
+}
+
+.link {
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: color 1s;
+    transition: font-size 0.1s;
+}
+
+.link:hover {
+    color: cadetblue;
+    font-size: larger;
+}

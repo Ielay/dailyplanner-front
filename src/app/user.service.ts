@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public register(newUser: User) {
-    this.http.post(this.BASE_URL + '/user/login', newUser)
+    this.http.post(this.BASE_URL + '/user/add', newUser)
       .subscribe((token: string) => localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token));
   }
 

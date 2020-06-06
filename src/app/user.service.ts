@@ -12,13 +12,19 @@ export class UserService {
 
   public register(newUser: User) {
     this.http.post(this.BASE_URL + '/user/add', newUser, {responseType: 'text'})
-      .subscribe((token: string) => localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token));
+      .subscribe((token: string) => {
+        localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token);
+        window.location.reload();
+      });
   }
 
   public login(loginInfo: LoginInfo) {
     this.http.post(this.BASE_URL + '/user/login', loginInfo, {responseType: 'text'})
-      .subscribe((token: string) => localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token));
-  }
+      .subscribe((token: string) => {
+        localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token)
+        window.location.reload();
+      });
+    }
 
   public logout(): void {
     localStorage.removeItem('DAILYPLANNER_ACCESS_TOKEN');

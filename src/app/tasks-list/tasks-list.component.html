@@ -1,13 +1,10 @@
 <div id="tasks-container">
     <ol>
-        <li *ngFor="let task of tasks">
+        <li *ngFor="let task of tasks; let i = index">
             <div>
                 {{task.title}}
-                <button>X</button>
+                <button type="button" (click)="removeItem(i)">X</button>
             </div>
         </li>
     </ol>
 </div>
-
-<input id="task-title-to-remove" type="text" #input>
-<button (click)="removeItem(input.value)">Remove item!</button>

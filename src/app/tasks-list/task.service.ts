@@ -12,12 +12,17 @@ export class TaskService {
   constructor(private http: HttpClient,
               private userService: UserService) { }
 
-  // public getAllTasks(): Array<Task> {
   public getAllTasks() {
     return this.http.get(this.BASE_URL + '/task/all');
   }
 
-  public removeTask(title: string): void {
-    // this.tasks.splice(this.indexOfElemWithSpecifiedTitle(title), 1);
+  public removeTask(taskId: number) {
+    console.log(`Task id to remove: ${taskId}`);
+
+    return this.http.delete(this.BASE_URL + `/task/${taskId}/delete`);
+  }
+
+  public addTask(newTask: Task) {
+    return this.http.post(this.BASE_URL + '/task/add', newTask);
   }
 }

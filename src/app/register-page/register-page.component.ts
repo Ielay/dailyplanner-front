@@ -38,6 +38,7 @@ export class RegisterPageComponent implements OnInit {
 
   public onRegisterClick() {
     if (this.registerFormControl.invalid) {
+      window.alert('You should fill in all input fields');
       return;
     }
 

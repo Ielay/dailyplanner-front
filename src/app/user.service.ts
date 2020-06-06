@@ -21,7 +21,7 @@ export class UserService {
   public login(loginInfo: LoginInfo) {
     this.http.post(this.BASE_URL + '/user/login', loginInfo, {responseType: 'text'})
       .subscribe((token: string) => {
-        localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token)
+        localStorage.setItem('DAILYPLANNER_ACCESS_TOKEN', token);
         window.location.reload();
       });
     }

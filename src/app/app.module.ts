@@ -18,7 +18,8 @@ const routes = [
   { path: '', component: LoginPageComponent},
   { path: 'logout', component: LogoutPageComponent},
   { path: 'register', component: RegisterPageComponent},
-  { path: 'tasks', component: TasksListComponent}
+  { path: 'tasks', component: TasksListComponent},
+  { path: 'tasks/create', component: AddTaskPageComponent}
 ];
 
 @NgModule({

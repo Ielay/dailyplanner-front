@@ -1,1 +1,6 @@
-<p>add-task-page works!</p>
+<form id="taskFormControl" [formGroup]="taskFormControl">
+    <label for="title">Title</label>
+    <input id="title" type="text" name="title" formControlName="title">
+
+    <button type="submit" (click)="onTaskCreatePlicked()">Create task</button>
+</form>

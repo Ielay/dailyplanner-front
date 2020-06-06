@@ -1,6 +1,7 @@
 import { TaskService } from './task.service';
 import { Task } from './task.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks-list',
@@ -19,7 +20,12 @@ export class TasksListComponent implements OnInit {
       .subscribe((tasks: Array<Task>) => this.tasks = tasks);
   }
 
-  public removeItem(taskTitle: string) {
-    this.taskService.removeTask(taskTitle);
+  public removeItem(taskIdx: number) {
+    console.log(`Idx: ${taskIdx}`);
+
+    this.taskService.removeTask(this.tasks[taskIdx].taskId)
+      .subscribe(() => {
+        window.location.reload();
+      });
   }
 }

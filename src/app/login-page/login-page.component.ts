@@ -25,9 +25,8 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onLoginButtonPushed(): void {
-    console.log(this.loginFormControl.value);
-
     if (this.loginFormControl.invalid){
+      window.alert('You should fill in all input fields');
       return;
     }
 

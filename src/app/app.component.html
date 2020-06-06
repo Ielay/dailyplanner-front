@@ -1,8 +1,11 @@
 <div id="router-links-container" class="links-container">
-    <a class="link" routerLink='' *ngIf="!isUserLoggedIn">Login page</a>
-    <a class="link" routerLink='register' *ngIf="!isUserLoggedIn">Registration page</a>
-    <a class="link" routerLink='logout' *ngIf="isUserLoggedIn">Logout page</a>
-    <a class="link" routerLink='tasks' *ngIf="isUserLoggedIn">Tasks page</a>
+    <a class="link" routerLink='' *ngIf="!isUserLoggedIn">Login</a>
+    <a class="link" routerLink='register' *ngIf="!isUserLoggedIn">Registration</a>
+    <a class="link" routerLink='logout' *ngIf="isUserLoggedIn">Logout</a>
+    <a class="link" routerLink='tasks' *ngIf="isUserLoggedIn">Tasks</a>
+    <a class="link" routerLink='tasks/create' *ngIf="isUserLoggedIn">Create task</a>
+
+    <span id="app-name-header">DAILYPLANNER</span>
 </div>
 
 <router-outlet></router-outlet>

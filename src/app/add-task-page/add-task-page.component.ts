@@ -1,4 +1,8 @@
+import { TaskService } from './../tasks-list/task.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Task } from '../tasks-list/task.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-task-page',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskPageComponent implements OnInit {
 
-  constructor() { }
+  taskFormControl: FormGroup = new FormGroup({
+    title: new FormControl('', Validators.required)
+  });
+
+  constructor(private taskService: TaskService,
+              private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public onTaskCreatePlicked() {
+    if (this.taskFormControl.invalid) {
+      window.alert('You should fill in all input fields');
+      return;
+    }
+
+    const newTask = new Task(this.taskFormControl.value.title);
+    newTask.done = false;
+    // TODO: fake value, should provide normal way to inputting deadline date
+    newTask.deadline = 123;
+
+    this.taskService.addTask(newTask)
+      .subscribe(() => {
+        this.router.navigate(['tasks']);
+      });
   }
 
 }

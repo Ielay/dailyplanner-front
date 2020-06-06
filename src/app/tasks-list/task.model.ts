@@ -1,8 +1,9 @@
 export class Task {
+    public taskId: number;
     public title: string;
     public description: string;
-    public isDone: boolean;
-    public deadline: Date;
+    public done: boolean;
+    public deadline: number;
 
     constructor(title: string) {
         this.title = title;

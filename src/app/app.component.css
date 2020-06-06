@@ -1,7 +1,24 @@
+#app-name-header {
+    position: absolute;
+    right: 1em;
+    text-shadow: 2px 2px deepskyblue;
+
+    /* animation: moving 10s infinite;
+    animation-direction: alternate; */
+}
+  
+/* @keyframes moving {
+    0%   {right: 1em;}
+    50%  {right: 50%;}
+    100% {right: 1em;}
+} */
+
 .links-container {
     display: block;
     background-color: aquamarine;
     padding: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px deepskyblue;
 }
 
 .link {

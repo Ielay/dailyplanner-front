@@ -2,6 +2,7 @@ import { UserService } from './../user.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-register-page',
@@ -40,6 +41,12 @@ export class RegisterPageComponent implements OnInit {
       return;
     }
 
-    this.userService.register(this.registerFormControl.value);
+    const newUser = new User();
+    // shitty decision to call db field as 'nickname'
+    newUser.nickname = this.registerFormControl.value.username;
+    newUser.email = this.registerFormControl.value.email;
+    newUser.password = this.registerFormControl.value.password;
+
+    this.userService.register(newUser);
   }
 }

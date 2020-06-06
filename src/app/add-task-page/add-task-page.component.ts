@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Task } from '../tasks-list/task.model';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-task-page',
@@ -15,10 +16,14 @@ export class AddTaskPageComponent implements OnInit {
     title: new FormControl('', Validators.required)
   });
 
-  constructor(private taskService: TaskService,
+  constructor(private userService: UserService,
+              private taskService: TaskService,
               private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.userService.isLoggedIn()) {
+      this.router.navigate(['']);
+    }
   }
 
   public onTaskCreatePlicked() {

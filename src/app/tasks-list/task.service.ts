@@ -7,7 +7,7 @@ import { UserService } from '../user.service';
 @Injectable()
 export class TaskService {
 
-  private BASE_URL = 'http://localhost:8080/api';
+  private BASE_URL = 'https://dry-everglades-24581.herokuapp.com/api';
 
   constructor(private http: HttpClient,
               private userService: UserService) { }

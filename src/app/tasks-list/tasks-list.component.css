@@ -1,3 +1,13 @@
 #tasks-container {
-    background-color: aqua
+    background-color: #b3ffff;
+}
+
+.status-done {
+    color: green;
+    text-shadow: 1px 0px green;
+}
+
+.status-in-progress {
+    color: red;
+    text-shadow: 1px 0px red;
 }

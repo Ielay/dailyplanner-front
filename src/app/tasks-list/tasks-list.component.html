@@ -12,8 +12,11 @@
             <td>
                 {{task.title}}
             </td>
-            <td>
-                {{task.done}}
+            <td class="status-done" *ngIf="task.done">
+                Done
+            </td>
+            <td class="status-in-progress" *ngIf="!task.done">
+                In progress
             </td>
             <button type="button" (click)="changeDoneStatus(i)">Done</button>
             <button type="button" (click)="removeItem(i)">X</button>

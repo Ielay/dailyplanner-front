@@ -26,7 +26,7 @@ export class TaskService {
     console.log(`Task id to patch: ${taskId}`);
 
     const task: Task = new Task();
-    task.done = newDoneStatus
+    task.done = newDoneStatus;
 
 
     return this.http.patch(

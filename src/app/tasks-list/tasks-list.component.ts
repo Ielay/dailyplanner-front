@@ -35,4 +35,14 @@ export class TasksListComponent implements OnInit {
         window.location.reload();
       });
   }
+
+  public changeDoneStatus(taskIdx: number) {
+    console.log(`Idx: ${taskIdx}`);
+
+    const selectedTask: Task = this.tasks[taskIdx];
+    this.taskService.updateDoneStatus(selectedTask.taskId, !selectedTask.done)
+      .subscribe(() => {
+        window.location.reload();
+      });
+  }
 }

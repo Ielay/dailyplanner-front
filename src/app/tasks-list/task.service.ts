@@ -22,6 +22,12 @@ export class TaskService {
     return this.http.delete(this.BASE_URL + `/task/${taskId}/delete`);
   }
 
+  public updateDoneStatus(taskId: number, done: boolean) {
+    console.log(`Task id to patch: ${taskId}`);
+
+    return this.http.patch(this.BASE_URL + `/task/${taskId}`, `{"done":"${done}"}`);
+  }
+
   public addTask(newTask: Task) {
     return this.http.post(this.BASE_URL + '/task/add', newTask);
   }

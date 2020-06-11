@@ -1,10 +1,17 @@
 <div id="tasks-container">
-    <ol>
-        <li *ngFor="let task of tasks; let i = index">
-            <div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let task of tasks; let i = index">
+            <tr>
                 {{task.title}}
-                <button type="button" (click)="removeItem(i)">X</button>
-            </div>
-        </li>
-    </ol>
+            </tr>
+            <tr>
+                {{task.done}}
+            </tr>
+            <button type="button" (click)="changeDoneStatus(i)">Done</button>
+            <button type="button" (click)="removeItem(i)">X</button>        </tr>
+    </table>
 </div>

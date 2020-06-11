@@ -5,7 +5,5 @@ export class Task {
     public done: boolean;
     public deadline: number;
 
-    constructor(title: string) {
-        this.title = title;
-    }
+    constructor() {}
 }

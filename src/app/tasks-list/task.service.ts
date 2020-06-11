@@ -22,10 +22,20 @@ export class TaskService {
     return this.http.delete(this.BASE_URL + `/task/${taskId}/delete`);
   }
 
-  public updateDoneStatus(taskId: number, done: boolean) {
+  public updateDoneStatus(taskId: number, newDoneStatus: boolean) {
     console.log(`Task id to patch: ${taskId}`);
 
-    return this.http.patch(this.BASE_URL + `/task/${taskId}`, `{"done":"${done}"}`);
+    const task: Task = new Task();
+    task.done = newDoneStatus
+
+
+    return this.http.patch(
+      this.BASE_URL + `/task/${taskId}`,
+      task,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      }
+    );
   }
 
   public addTask(newTask: Task) {

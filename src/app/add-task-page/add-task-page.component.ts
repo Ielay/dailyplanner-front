@@ -32,7 +32,8 @@ export class AddTaskPageComponent implements OnInit {
       return;
     }
 
-    const newTask = new Task(this.taskFormControl.value.title);
+    const newTask = new Task();
+    newTask.title = this.taskFormControl.value.title;
     newTask.done = false;
     // TODO: fake value, should provide normal way to inputting deadline date
     newTask.deadline = 123;

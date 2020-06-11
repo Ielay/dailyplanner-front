@@ -1,17 +1,22 @@
 <div id="tasks-container">
     <table>
         <tr>
+            <th>#</th>
             <th>Title</th>
             <th>Status</th>
         </tr>
         <tr *ngFor="let task of tasks; let i = index">
-            <tr>
+            <td>
+                {{i + 1}}
+            </td>
+            <td>
                 {{task.title}}
-            </tr>
-            <tr>
+            </td>
+            <td>
                 {{task.done}}
-            </tr>
+            </td>
             <button type="button" (click)="changeDoneStatus(i)">Done</button>
-            <button type="button" (click)="removeItem(i)">X</button>        </tr>
+            <button type="button" (click)="removeItem(i)">X</button>
+        </tr>
     </table>
 </div>
